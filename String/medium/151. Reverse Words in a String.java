@@ -7,24 +7,14 @@ Problem Link:- https://leetcode.com/problems/reverse-words-in-a-string/
                   
 class Solution {
     public String reverseWords(String s) {
-        String arr[] = s.split(" ");
-        int start = 0 , end = arr.length-1;
-        while(start < end){
-            String temp = arr[end];
-            arr[end] = arr[start];
-            arr[start] = temp;
-            start++;
-            end--;
-        }
-        String ans = "";
-        for(int i = 0; i < arr.length; i++){
-            if(arr[i] != ""){
-                ans += arr[i];
-                ans += " ";
+        String[]ch = s.split(" ");
+        s = "";
+        for(int i = ch.length - 1; i >= 0; i--){
+            s += ch[i];
+            if(ch[i] != ""){
+                s += " ";
             }
         }
-        end = ans.length() - 1;
-        while(ans.charAt(end) == ' ') end--;
-        return ans.substring(0 , end+1);
+        return s.substring(0 , s.length()-1);
     }
 }
